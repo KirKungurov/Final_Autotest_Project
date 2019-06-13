@@ -15,7 +15,7 @@ public class AlertsLayer extends BasePage {
 
     private static final By LEFT_MENU = By.xpath(".//*[@class='toolbar-layer_menu custom-scrolling usel-off']");
     private static final By CONTENT = By.id("ntf_layer_content_inner");
-    private static final By GROUPS = By.xpath(".//*[@class='nav-side __navigation']//a[@data-category='Groups']");
+    private static final By GROUPS = By.xpath(".//*[contains(@class,'nav-side __navigation')]//a[@data-category='Groups']");
     private static final By ALERT = By.xpath(".//*[@id='ntf_layer_content_inner']//*[@class='hookBlock']");
 
     public AlertsLayer(WebDriver driver) {
@@ -25,6 +25,17 @@ public class AlertsLayer extends BasePage {
     public AlertsLayer clickToGroups(){
         click(GROUPS, "Пропала кнопка Группы");
         return new AlertsLayer(driver);
+    }
+    public AlertsWrapper findNeededInvite(String expectedNameOfCreater,
+                                          String expectedNameofGroup){
+        List<AlertsWrapper> alerts = findAllAlerts();
+
+        for (AlertsWrapper alert : alerts) {
+            if (alert.equals(expectedNameOfCreater, expectedNameofGroup)) {
+                return alert;
+            }
+        }
+        return null;
     }
 
     public List<AlertsWrapper> findAllAlerts(){

@@ -17,14 +17,11 @@ public class AlertsWrapper {
         this.element = element;
     }
 
-    public boolean equals(String expectedNameOfPerson, String expectedNameOfGroup, String minTime, String maxTime){
+    public boolean equals(String expectedNameOfPerson, String expectedNameOfGroup){
         String actualNameOfPerson = element.findElement(NAME_OF_PERSON).getText();
         String actualNameOfGroup = element.findElement(NAME_OF_GROUP).getText();
-        String actualTime = element.findElement(TIME).getText();
         if (actualNameOfGroup.equals(expectedNameOfGroup)
-                && actualNameOfPerson.equals(expectedNameOfPerson)
-                && minTime.compareTo(actualTime)>= -1
-                && maxTime.compareTo(actualTime)<= 1)
+                && actualNameOfPerson.equals(expectedNameOfPerson))
             return true;
         else
             return false;

@@ -14,23 +14,18 @@ import java.util.List;
 
 public class JoinToGroupWithAgeRestrictionsTest extends BaseTest {
 
+    private String NAME_Of_NEEDED_GROUP = "Autotesting 2019 JoinToGroup";
+    private final String DESCRIPTION_OF_NEEDED_GROUP = "For bots";
+
     @Test
-    public void joinToGroupWithAgeRestriction() throws Exception{
-        boolean isNecessaryGroupFounded = true;
+    public void joinToGroupWithAgeRestriction(){
 
         new LoginPage(driver).login(Config.loginOfFirstBot, Config.passwordOfFirstBot);
         new MainPage(driver).clickToGroups();
-        new GroupsPage(driver).clickSearchGroup(Config.nameOfNecessaryGroup);
+        new GroupsPage(driver).clickSearchGroup(NAME_Of_NEEDED_GROUP);
         FoundedGroupsPage foundedGroupsPage = new FoundedGroupsPage(driver);
 
-        List<FoundedGroupsWrapper> foundedGroups = foundedGroupsPage.findAllFoundedGroups();
-        for (FoundedGroupsWrapper group: foundedGroups){
-            if (group.isGroupNeeded(Config.nameOfCreatingGroup,Config.descriptionOfNecessaryGroup)){
-                isNecessaryGroupFounded = false;
-            }
-        }
-
-        Assert.assertTrue("Найдена группа, которую не должно находить",
-                isNecessaryGroupFounded);
+        Assert.assertNull("Найдена группа, которую не должно находить",
+                foundedGroupsPage.findNeededGroup(NAME_Of_NEEDED_GROUP, DESCRIPTION_OF_NEEDED_GROUP));
     }
 }

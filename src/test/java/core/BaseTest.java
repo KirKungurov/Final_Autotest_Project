@@ -10,17 +10,14 @@ import java.util.concurrent.TimeUnit;
 import static junit.framework.TestCase.fail;
 
 public abstract class BaseTest {
-    private String baseUrl;
     private StringBuffer verificationErrors = new StringBuffer();
     protected WebDriver driver;
+    protected String baseUrl= "https://ok.ru";
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() {
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        baseUrl = "https://ok.ru";
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get(baseUrl + "/");
+        Helper.init(baseUrl, driver);
     }
 
     @After

@@ -15,16 +15,15 @@ public class GroupsPage extends BasePage {
         super(driver);
     }
 
-    public GroupCategoryLayer clickToCreateButton(){
+    public void clickToCreateButton(){
         click(BUTTON_CREATE_GROUP, "Не прогрузилась кнопка создания группы");
-        return new GroupCategoryLayer(driver);
+        new GroupCategoryLayer(driver);
     }
 
-    public FoundedGroupsPage clickSearchGroup(String nameOfNecessaryGroup){
+    public void clickSearchGroup(String nameOfNecessaryGroup){
         type(SEARCH_FIELD, nameOfNecessaryGroup);
-        return new FoundedGroupsPage(driver);
+        new FoundedGroupsPage(driver);
     }
-
 
 
     @Override

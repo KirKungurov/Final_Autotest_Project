@@ -29,6 +29,15 @@ public class FoundedGroupsPage extends BasePage {
         return Collections.emptyList();
     }
 
+    public FoundedGroupsWrapper findNeededGroup(String expectedName, String expectedDescription){
+        List<FoundedGroupsWrapper> foundedGroups = findAllFoundedGroups();
+        for (FoundedGroupsWrapper group: foundedGroups){
+            if (group.isGroupNeeded(expectedName, expectedDescription)){
+                return group;
+            }
+        }
+        return null;
+    }
     @Override
     protected void check() {
         Assert.assertTrue("Не прогрузился логотип",

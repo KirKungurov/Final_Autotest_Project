@@ -17,14 +17,14 @@ public class MainPage extends BasePage {
         super(driver);
     }
 
-    public GroupsPage clickToGroups(){
+    public void clickToGroups(){
         click(BUTTON_GROUPS, "Пропала кнопка перехода в группы");
-        return new GroupsPage(driver);
+        new GroupsPage(driver);
     }
 
-    public AlertsLayer clickToAlert(){
+    public void clickToAlert(){
         click(ALERTS, "Пропала кнопка Оповещения");
-        return new AlertsLayer(driver);
+        new AlertsLayer(driver);
     }
 
     @Override

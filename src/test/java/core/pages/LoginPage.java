@@ -15,11 +15,11 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public MainPage login(String login, String password) {
+    public void login(String login, String password) {
         type(EMAIL, login);
         type(PASSWORD, password);
         click(BUTTON, "Пропала кнопка Войти");
-        return new MainPage(driver);
+        new MainPage(driver);
     }
 
     @Override

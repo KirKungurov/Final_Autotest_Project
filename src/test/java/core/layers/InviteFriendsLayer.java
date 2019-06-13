@@ -35,6 +35,18 @@ public class InviteFriendsLayer extends BasePage {
         return Collections.emptyList();
     }
 
+    public FriendWrapper chooseNeededFriend(String expectedName){
+        List<FriendWrapper> friends = findAllFriends();
+
+        for (FriendWrapper friend: friends){
+            if (friend.equals(expectedName)){
+                return friend;
+            }
+        }
+        return  null;
+
+    }
+
     @Override
     protected void check() {
         Assert.assertTrue("Не прогрузилась кнопка Пригласить",

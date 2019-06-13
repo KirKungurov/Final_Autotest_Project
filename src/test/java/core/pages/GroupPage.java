@@ -34,13 +34,13 @@ public class GroupPage extends BasePage {
         return new InviteFriendsLayer(driver);
     }
 
-    public ConfirmDeletingGroupLayer deleteGroup(){
+    public void deleteGroup(){
         click(BUTTON_OF_DROPDOWN_MENU, "Пропала кнопка выпадающего меню");
         Assert.assertTrue("Не прогрузилась кнопка Удалить",
                 explicitWait(ExpectedConditions.visibilityOfElementLocated(BUTTON_DELETE_GROUP),
                         5,500));
         click(BUTTON_DELETE_GROUP, "Пропала кнопка Удалить");
-        return new ConfirmDeletingGroupLayer(driver);
+        new ConfirmDeletingGroupLayer(driver);
     }
 
     @Override
