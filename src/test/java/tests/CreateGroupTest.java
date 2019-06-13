@@ -6,11 +6,9 @@ import core.Helper;
 import core.layers.ConfirmDeletingGroupLayer;
 import core.layers.CreateGroupLayer;
 import core.layers.GroupCategoryLayer;
-import core.pages.GroupPage;
-import core.pages.GroupsPage;
-import core.pages.LoginPage;
-import core.pages.MainPage;
+import core.pages.*;
 
+import core.wrappers.OwnGroupWrapper;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,14 +29,10 @@ public class CreateGroupTest extends BaseTest {
         Assert.assertTrue("Создалась группа с неправильным названием",
                 groupPage.checkGroupName(NAME_OF_CREATING_GROUP));
 
-        groupPage.deleteGroup();
-        new ConfirmDeletingGroupLayer(driver).confirmDeleting();
     }
 
     @After
     public void deleteGroup(){
-        Helper.init(baseUrl,driver);
-        new MainPage(driver).clickToGroups();
-
+        Helper.deleteGroup(baseUrl, driver, NAME_OF_CREATING_GROUP);
     }
 }

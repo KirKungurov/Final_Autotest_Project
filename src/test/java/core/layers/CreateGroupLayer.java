@@ -15,10 +15,10 @@ public class CreateGroupLayer extends BasePage {
         super(driver);
     }
 
-    public GroupPage CrateGroup(String name){
+    public void CrateGroup(String name){
         type(NAME_FIELD, name);
         click(CREATE_BUTTON,"Пропала кнопка Создать");
-        return new GroupPage(driver);
+        new GroupPage(driver);
     }
 
     @Override

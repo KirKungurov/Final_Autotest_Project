@@ -10,8 +10,8 @@ public class FriendWrapper {
     private WebElement element;
 
 
-    public static final By BUTTON = By.xpath(".//*[@class='selectable-card_ic']");
-    public static final By NAME = By.xpath(".//*[@class='ellip']/a[contains(@hrefattrs,'friendId')]");
+    private static final By BUTTON = By.xpath(".//*[@class='selectable-card_ic']");
+    private static final By NAME = By.xpath(".//*[@class='ellip']/a[contains(@hrefattrs,'friendId')]");
 
     public FriendWrapper(WebDriver driver, WebElement element) {
         this.driver = driver;

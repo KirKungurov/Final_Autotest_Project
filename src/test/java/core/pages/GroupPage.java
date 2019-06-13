@@ -25,10 +25,6 @@ public class GroupPage extends BasePage {
         return expectedName.equals(driver.findElement(NAME_OF_GROUP).getText());
     }
 
-//    public boolean checkGroupDescrtiption(String expectedDescription){
-//        return expectedDescription.equals(driver.findElement(DESCRIPTION_OF_GROUP).getText());
-//    }
-
     public InviteFriendsLayer clickInviteButton(){
         click(BUTTON_INVITE, "Пропала кнопка Пригласить друзей");
         return new InviteFriendsLayer(driver);

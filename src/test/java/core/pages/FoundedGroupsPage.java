@@ -22,7 +22,7 @@ public class FoundedGroupsPage extends BasePage {
         super(driver);
     }
 
-    public List<FoundedGroupsWrapper> findAllFoundedGroups(){
+    private List<FoundedGroupsWrapper> findAllFoundedGroups(){
         if(isElementPresent(RESULT_LIST)){
             return FoundedGroupsTransformer.wrap(driver.findElements(GROUP_CARD),driver);
         }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AlertsTransformer {
+public class NotificationsTransformer {
 
     public static List<AlertsWrapper> wrap(List<WebElement> elements, WebDriver driver){
         if (elements.isEmpty()){

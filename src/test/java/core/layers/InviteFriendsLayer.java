@@ -23,12 +23,12 @@ public class InviteFriendsLayer extends BasePage {
         super(driver);
     }
 
-    public GroupPage sendInvite(){
+    public void sendInvite(){
         click(BUTTON_INVITE, "Пропала кнопка Пригласить");
-        return new GroupPage(driver);
+        new GroupPage(driver);
     }
 
-    public List<FriendWrapper> findAllFriends(){
+    private List<FriendWrapper> findAllFriends(){
         if (isElementPresent(FRIEND_CARD)){
             return FriendsTransformer.wrap(driver.findElements(FRIEND_CARD), driver);
         }

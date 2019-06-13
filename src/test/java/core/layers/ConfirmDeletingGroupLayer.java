@@ -16,9 +16,9 @@ public class ConfirmDeletingGroupLayer extends BasePage {
         super(driver);
     }
 
-    public GroupsPage confirmDeleting(){
+    public void confirmDeleting(){
         click(BUTTON_DELETE_GROUP, "Пропала кнопка Удалить");
-        return new GroupsPage(driver);
+        new GroupsPage(driver);
     }
 
     @Override

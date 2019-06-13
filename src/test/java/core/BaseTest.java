@@ -21,7 +21,7 @@ public abstract class BaseTest {
     }
 
     @After
-    public void tearDown() throws Exception{
+    public void tearDown(){
         driver.quit();
         String verificationErrorsString = verificationErrors.toString();
         if (!"".equals(verificationErrorsString)){

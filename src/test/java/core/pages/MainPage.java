@@ -1,6 +1,6 @@
 package core.pages;
 
-import core.layers.AlertsLayer;
+import core.layers.NotificationLayer;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +24,7 @@ public class MainPage extends BasePage {
 
     public void clickToAlert(){
         click(ALERTS, "Пропала кнопка Оповещения");
-        new AlertsLayer(driver);
+        new NotificationLayer(driver);
     }
 
     @Override

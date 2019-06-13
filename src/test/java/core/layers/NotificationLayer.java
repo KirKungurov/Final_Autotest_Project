@@ -1,6 +1,6 @@
 package core.layers;
 
-import core.transformers.AlertsTransformer;
+import core.transformers.NotificationsTransformer;
 import core.wrappers.AlertsWrapper;
 import core.pages.BasePage;
 import org.junit.Assert;
@@ -11,20 +11,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.Collections;
 import java.util.List;
 
-public class AlertsLayer extends BasePage {
+public class NotificationLayer extends BasePage {
 
     private static final By LEFT_MENU = By.xpath(".//*[@class='toolbar-layer_menu custom-scrolling usel-off']");
     private static final By CONTENT = By.id("ntf_layer_content_inner");
     private static final By GROUPS = By.xpath(".//*[contains(@class,'nav-side __navigation')]//a[@data-category='Groups']");
     private static final By ALERT = By.xpath(".//*[@id='ntf_layer_content_inner']//*[@class='hookBlock']");
 
-    public AlertsLayer(WebDriver driver) {
+    public NotificationLayer(WebDriver driver) {
         super(driver);
     }
 
-    public AlertsLayer clickToGroups(){
+    public void clickToGroups(){
         click(GROUPS, "Пропала кнопка Группы");
-        return new AlertsLayer(driver);
+        new NotificationLayer(driver);
     }
     public AlertsWrapper findNeededInvite(String expectedNameOfCreater,
                                           String expectedNameofGroup){
@@ -38,9 +38,9 @@ public class AlertsLayer extends BasePage {
         return null;
     }
 
-    public List<AlertsWrapper> findAllAlerts(){
+    private List<AlertsWrapper> findAllAlerts(){
         if (isElementPresent(ALERT)){
-            return AlertsTransformer.wrap(driver.findElements(ALERT), driver);
+            return NotificationsTransformer.wrap(driver.findElements(ALERT), driver);
         }
         return Collections.emptyList();
     }
